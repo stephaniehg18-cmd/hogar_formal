@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hogar Formal · Formaliza el trabajo del hogar</title>
+  <meta name="description" content="Prototipo Legaltech: registro del contrato de la trabajadora del hogar en 3 pasos, constancia con pendientes, recordatorios, calculadora de gratificación y CTS, derechos y asistente con IA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ================= CABECERA ================= -->
+<header class="header">
+  <div class="header__inner">
+    <a href="#inicio" data-nav="inicio" class="brand">
+      <span class="brand__mark" aria-hidden="true">HF</span>
+      <span class="brand__name">Hogar Formal</span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="nav" id="nav" aria-label="Secciones">
+      <a href="#inicio" data-nav="inicio">Inicio</a>
+      <a href="#registrar" data-nav="registrar" data-nuevo="1">Registrar</a>
+      <a href="#registros" data-nav="registros">Mis registros</a>
+      <a href="#calculadora" data-nav="calculadora">Calculadora</a>
+      <a href="#recordatorios" data-nav="recordatorios">Recordatorios</a>
+      <a href="#derechos" data-nav="derechos">Derechos y consulta</a>
+      <a href="#asistente" data-nav="asistente">Asistente IA</a>
+      <a href="#proyecto" data-nav="proyecto">El proyecto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- ================= INICIO ================= -->
+<section id="inicio" class="view">
+  <div class="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <span class="eyebrow">Ley N.° 31047 · Trabajadoras y trabajadores del hogar</span>
+        <h1>Formalizar a tu trabajadora del hogar, en 3 pasos</h1>
+        <p class="lead">Registra el contrato, descarga el documento listo para firmar y conoce qué te toca cumplir: EsSalud, pensiones, gratificaciones y CTS. Sin trámites complicados.</p>
+        <div class="actions">
+          <a href="#registrar" data-nav="registrar" data-nuevo="1" class="btn btn--primary btn--lg">Soy hogar empleador</a>
+          <a href="#derechos" data-nav="derechos" class="btn btn--outline btn--lg">Soy trabajadora del hogar</a>
+        </div>
+      </div>
+      <div class="phone" aria-hidden="true">
+        <div class="phone__bar">Hogar Formal</div>
+        <div class="phone__body">
+          <small>Constancia</small>
+          <b class="phone__code">HF-48213</b>
+          <div class="phone__row"><span>Modalidad</span><b>Cama afuera</b></div>
+          <div class="phone__row"><span>Remuneración</span><b>S/ 1 500,00</b></div>
+          <div class="phone__row"><span>Jornada</span><b>48 h/semana</b></div>
+          <small class="phone__sub">Lo que debes cumplir</small>
+          <div class="phone__check is-done">Contrato registrado</div>
+          <div class="phone__check is-done">Afiliación a EsSalud</div>
+          <div class="phone__check">Afiliación a pensiones</div>
+          <div class="phone__check">Gratificaciones y CTS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <h2 class="title">La ley existe, pero no se cumple</h2>
+    <div class="stats">
+      <div class="stat"><b>91,7 % – 96,6 %</b><span>de las trabajadoras del hogar trabaja en la informalidad</span></div>
+      <div class="stat"><b>7 de cada 10</b><span>hogares empleadores creen que la ley no les aplica</span></div>
+      <div class="stat"><b>15 %</b><span>de los empleadores dice conocer la Ley N.° 31047</span></div>
+    </div>
+    <p class="source">Cifras tomadas de la investigación del equipo (Public Policy Lab, 2026).</p>
+
+    <h2 class="title">Cómo funciona</h2>
+    <div class="steps">
+      <a class="step" href="#registrar" data-nav="registrar" data-nuevo="1"><span class="step__n">1</span><h3>Registra</h3><p>Datos del hogar, de la trabajadora y de las condiciones de trabajo, en lenguaje simple.</p></a>
+      <a class="step" href="#registros" data-nav="registros"><span class="step__n">2</span><h3>Obtén tu constancia</h3><p>Código de registro, contrato listo para firmar y la lista de lo que debes cumplir, con montos.</p></a>
+      <a class="step" href="#recordatorios" data-nav="recordatorios"><span class="step__n">3</span><h3>Recibe recordatorios</h3><p>Avisos al contratar y antes de las gratificaciones y la CTS, por WhatsApp, SMS o correo.</p></a>
+      <a class="step" href="#derechos" data-nav="derechos"><span class="step__n">4</span><h3>Derechos y consulta</h3><p>La trabajadora conoce sus derechos y consulta con un asistente que orienta antes de cualquier sanción.</p></a>
+    </div>
+
+    <div class="notice">Prototipo académico con datos de ejemplo: la información se guarda solo en este navegador y <b>no es un servicio oficial del MTPE</b>.</div>
+  </div>
+</section>
+
+<!-- ================= REGISTRAR (3 pasos) ================= -->
+<section id="registrar" class="view">
+  <div class="wrap wrap--narrow">
+    <div class="page-head">
+      <h2 class="title">Registrar a la trabajadora del hogar</h2>
+      <button type="button" class="link" id="btnEjemplo">Llenar con un ejemplo</button>
+    </div>
+
+    <ol class="progress" id="progress">
+      <li class="is-active"><span>1</span>Tu hogar</li>
+      <li><span>2</span>La trabajadora</li>
+      <li><span>3</span>Condiciones</li>
+    </ol>
+
+    <form id="formRegistro" class="card" novalidate autocomplete="off">
+      <!-- Paso 1 -->
+      <fieldset class="paso" data-paso="1">
+        <legend>¿Quién contrata?</legend>
+        <div class="fields">
+          <label class="col-2">Nombre y apellidos<input name="hNombre" type="text" placeholder="Como figura en tu DNI"></label>
+          <label>DNI<input name="hDni" type="text" inputmode="numeric" maxlength="8"></label>
+          <label>Celular<input name="hCelular" type="tel" inputmode="numeric" maxlength="9" placeholder="9 dígitos"></label>
+          <label class="col-2">Dirección donde se trabajará<input name="hDireccion" type="text" placeholder="Calle, número"></label>
+          <label class="col-2">Distrito
+            <input name="hDistrito" list="distritos" placeholder="Elige o escribe tu distrito">
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Paso 2 -->
+      <fieldset class="paso" data-paso="2" hidden>
+        <legend>¿A quién contratas?</legend>
+        <div class="fields">
+          <label class="col-2">Nombre y apellidos de la trabajadora<input name="tNombre" type="text"></label>
+          <label>Documento
+            <select name="tDocTipo"><option>DNI</option><option>CE</option><option>Pasaporte</option></select>
+          </label>
+          <label>Número<input name="tDni" type="text" maxlength="12"></label>
+          <label>Fecha de nacimiento<input name="tFnac" type="date"></label>
+          <label>Celular (opcional)<input name="tCelular" type="tel" inputmode="numeric" maxlength="9"></label>
+          <label class="col-2">Sistema de pensiones que elige
+            <select name="tPension">
+              <option value="ONP">ONP (Sistema Nacional de Pensiones)</option>
+              <option value="AFP">AFP (Sistema Privado de Pensiones)</option>
+              <option value="">Aún no decide</option>
+            </select>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Paso 3 -->
+      <fieldset class="paso" data-paso="3" hidden>
+        <legend>Condiciones del trabajo</legend>
+        <div class="choice" role="radiogroup" aria-label="Modalidad">
+          <label><input type="radio" name="modalidad" value="afuera" checked><span><b>Cama afuera</b><small>No vive en el hogar</small></span></label>
+          <label><input type="radio" name="modalidad" value="adentro"><span><b>Cama adentro</b><small>Vive en el hogar</small></span></label>
+          <label><input type="radio" name="modalidad" value="horas"><span><b>Por horas</b><small>Menos de 4 h al día</small></span></label>
+        </div>
+
+        <p class="label">¿Qué labores realizará?</p>
+        <div class="chips-check">
+          <label><input type="checkbox" name="lLimpieza"><span>Limpieza</span></label>
+          <label><input type="checkbox" name="lCocina"><span>Cocina</span></label>
+          <label><input type="checkbox" name="lLavado"><span>Lavado y planchado</span></label>
+          <label><input type="checkbox" name="lNinos"><span>Cuidado de niñas/os</span></label>
+          <label><input type="checkbox" name="lMayores"><span>Cuidado de personas mayores o enfermas</span></label>
+          <label><input type="checkbox" name="lMascotas"><span>Mascotas</span></label>
+        </div>
+
+        <div class="fields">
+          <label>Sueldo mensual (S/)<input name="remun" type="number" min="0" step="0.01"></label>
+          <label>Fecha de inicio<input name="fInicio" type="date"></label>
+          <label>Hora de entrada<input name="hEntrada" type="time" value="08:00"></label>
+          <label>Hora de salida<input name="hSalida" type="time" value="17:00"></label>
+          <label>Horas de trabajo al día<input name="horasDia" type="number" min="1" max="12" step="0.5" value="8"></label>
+          <label>Días de trabajo a la semana<input name="diasSem" type="number" min="1" max="7" value="6"></label>
+          <label>Día de descanso
+            <select name="descanso"><option>domingo</option><option>sábado</option><option>lunes</option><option>martes</option><option>miércoles</option><option>jueves</option><option>viernes</option></select>
+          </label>
+          <label>Forma de pago
+            <select name="pago"><option value="mensual">Mensual, en efectivo</option><option value="mensual-transf">Mensual, por transferencia</option><option value="quincenal">Quincenal, en efectivo</option><option value="quincenal-transf">Quincenal, por transferencia</option></select>
+          </label>
+          <label class="check col-2"><input type="checkbox" name="plazoFijo"> El trabajo tiene fecha de término</label>
+          <label class="only-fijo">Fecha de término<input name="fFin" type="date"></label>
+          <label class="only-fijo">Motivo<input name="causa" type="text" placeholder="Ej.: reemplazo por licencia de maternidad"></label>
+        </div>
+      </fieldset>
+
+      <div id="mensajes" class="messages" aria-live="polite"></div>
+
+      <div class="form-nav">
+        <button type="button" class="btn btn--ghost" id="btnAtras" hidden>Atrás</button>
+        <button type="button" class="btn btn--primary" id="btnSiguiente">Continuar</button>
+      </div>
+    </form>
+  </div>
+  <datalist id="distritos"></datalist>
+</section>
+
+<!-- ================= CONSTANCIA ================= -->
+<section id="constancia" class="view">
+  <div class="wrap">
+    <div class="constancia" id="constanciaBox"></div>
+  </div>
+</section>
+
+<!-- ================= MIS REGISTROS ================= -->
+<section id="registros" class="view">
+  <div class="wrap">
+    <div class="page-head">
+      <h2 class="title">Mis registros</h2>
+      <a href="#registrar" data-nav="registrar" data-nuevo="1" class="btn btn--primary">＋ Nuevo registro</a>
+    </div>
+    <div id="listaRegistros" class="reg-list"></div>
+  </div>
+</section>
+
+<!-- ================= CALCULADORA ================= -->
+<section id="calculadora" class="view">
+  <div class="wrap">
+    <h2 class="title">Calculadora de gratificación y CTS</h2>
+    <p class="muted">Según la Ley N.° 31047, la trabajadora del hogar recibe gratificación y CTS como cualquier trabajador del régimen general (Ley N.° 27735 y D.S. N.° 001-97-TR).</p>
+    <div class="two-col">
+      <form id="formCalc" class="card" novalidate autocomplete="off">
+        <div class="tabs" role="tablist">
+          <label><input type="radio" name="concepto" value="grati" checked><span>Gratificación</span></label>
+          <label><input type="radio" name="concepto" value="cts"><span>CTS</span></label>
+        </div>
+        <div class="fields">
+          <label class="col-2">Usar un registro
+            <select id="calcRegistro"><option value="">— Ingresar datos manualmente —</option></select>
+          </label>
+          <label>Sueldo mensual (S/)<input type="number" name="sueldo" min="0" step="0.01"></label>
+          <label>Fecha de ingreso<input type="date" name="ingreso"></label>
+          <label class="check col-2"><input type="checkbox" name="asigFam"> Tiene hijos menores (asignación familiar: 10 % de la RMV)</label>
+          <label class="calc-grati">Gratificación de
+            <select name="gPeriodo"><option value="julio">Julio</option><option value="diciembre">Diciembre</option></select>
+          </label>
+          <label class="calc-grati">Año<input type="number" name="gAnio" min="2021" max="2100"></label>
+          <label class="calc-cts">Depósito de
+            <select name="cPeriodo"><option value="mayo">Mayo</option><option value="noviembre">Noviembre</option></select>
+          </label>
+          <label class="calc-cts">Año<input type="number" name="cAnio" min="2021" max="2100"></label>
+          <label class="check col-2 calc-cts"><input type="checkbox" name="parcial"> Trabaja por horas (menos de 4 horas al día)</label>
+          <label>Fecha de cese (si ya terminó)<input type="date" name="cese"></label>
+          <input type="hidden" name="regimen" value="general">
+          <input type="hidden" name="variables" value="0">
+          <input type="hidden" name="seguro" value="essalud">
+          <input type="hidden" name="gratiRef" value="">
+        </div>
+        <div class="form-nav"><button type="submit" class="btn btn--primary">Calcular</button></div>
+      </form>
+      <div id="calcResultado" class="card result" aria-live="polite">
+        <div class="empty">Ingresa los datos o elige un registro y presiona <b>Calcular</b>. Verás el monto y cómo se calculó.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RECORDATORIOS ================= -->
+<section id="recordatorios" class="view">
+  <div class="wrap">
+    <h2 class="title">Recordatorios</h2>
+    <p class="muted">Elige cómo y cuándo recibir avisos para no olvidar tus obligaciones.</p>
+    <div class="two-col">
+      <form id="formRecord" class="card" novalidate>
+        <div class="fields">
+          <label class="col-2">Registro
+            <select id="recRegistro"></select>
+          </label>
+          <label>¿Por dónde quieres recibirlos?
+            <select name="canal"><option value="whatsapp">WhatsApp</option><option value="sms">Mensaje de texto (SMS)</option><option value="correo">Correo electrónico</option></select>
+          </label>
+          <label>Número o correo<input name="contacto" type="text"></label>
+        </div>
+        <div class="toggles">
+          <label class="toggle"><input type="checkbox" name="alContratar" checked><span>Al contratar (registro en el MTPE)</span></label>
+          <label class="toggle"><input type="checkbox" name="gratiJul" checked><span>Gratificación de julio</span></label>
+          <label class="toggle"><input type="checkbox" name="gratiDic" checked><span>Gratificación de diciembre</span></label>
+          <label class="toggle"><input type="checkbox" name="cts" checked><span>Depósitos de CTS (mayo y noviembre)</span></label>
+          <label class="toggle"><input type="checkbox" name="vacaciones" checked><span>Vacaciones (aniversario del ingreso)</span></label>
+        </div>
+        <div class="form-nav">
+          <button type="button" class="btn btn--ghost" id="btnICS">Agregar a mi calendario</button>
+          <button type="submit" class="btn btn--primary">Guardar preferencias</button>
+        </div>
+      </form>
+      <div class="card">
+        <h3 class="card__title">Próximos recordatorios</h3>
+        <ul id="recLista" class="timeline"></ul>
+        <h3 class="card__title">Vista previa del mensaje</h3>
+        <div class="chat-preview" id="recPreview"></div>
+        <p class="hint">En el prototipo los envíos se simulan. El archivo de calendario sí funciona en el celular.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DERECHOS Y CONSULTA ================= -->
+<section id="derechos" class="view">
+  <div class="wrap">
+    <h2 class="title">Tus derechos como trabajadora del hogar</h2>
+    <p class="muted">Explicados en palabras sencillas. Toca cada tema para ver más.</p>
+    <div class="rights" id="listaDerechos"></div>
+
+    <div class="two-col two-col--top">
+      <form id="formConsulta" class="card" novalidate>
+        <h3 class="card__title">Haz una consulta</h3>
+        <p class="hint">Puedes consultar sin dar tu nombre. Recibirás un número de seguimiento y orientación antes de cualquier sanción al hogar.</p>
+        <div class="fields">
+          <label class="col-2">Tema
+            <select name="tema">
+              <option>Sueldo y pagos</option><option>Horario y descanso</option><option>Gratificación o CTS</option>
+              <option>EsSalud o pensión</option><option>Vacaciones</option><option>Despido</option><option>Maltrato o acoso</option><option>Otro</option>
+            </select>
+          </label>
+          <label class="col-2">Cuéntanos qué pasa<textarea name="mensaje" rows="4" placeholder="Ej.: Trabajo desde hace un año y nunca me pagaron gratificación…"></textarea></label>
+          <label class="col-2">Celular para responderte (opcional)<input name="contacto" type="tel" maxlength="9"></label>
+        </div>
+        <div class="form-nav"><button type="submit" class="btn btn--primary">Enviar al canal de atención</button></div>
+        <div id="consultaResultado" aria-live="polite"></div>
+      </form>
+      <div class="card">
+        <h3 class="card__title">Mis consultas</h3>
+        <ul id="listaConsultas" class="simple-list"></ul>
+        <h3 class="card__title">Páginas oficiales</h3>
+        <ul class="links">
+          <li><a href="https://www.gob.pe/mtpe" target="_blank" rel="noopener">Ministerio de Trabajo (MTPE)</a></li>
+          <li><a href="https://www.gob.pe/sunafil" target="_blank" rel="noopener">SUNAFIL · Inspección laboral</a></li>
+          <li><a href="https://www.gob.pe/essalud" target="_blank" rel="noopener">EsSalud · Seguro de salud</a></li>
+          <li><a href="https://www.gob.pe/onp" target="_blank" rel="noopener">ONP · Pensiones</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ASISTENTE IA ================= -->
+<section id="asistente" class="view">
+  <div class="wrap">
+    <h2 class="title">Asistente con inteligencia artificial</h2>
+    <p class="muted">Orienta a hogares y trabajadoras sobre la Ley N.° 31047. Sus respuestas son referenciales y deben verificarse.</p>
+    <div class="two-col two-col--chat">
+      <div class="card chat">
+        <div class="chat__head">
+          <div class="tabs tabs--sm">
+            <label><input type="radio" name="iaModo" value="local" checked><span>Base local</span></label>
+            <label><input type="radio" name="iaModo" value="claude"><span>Claude (API)</span></label>
+          </div>
+          <label class="check small"><input type="checkbox" id="iaVerEnvio" checked> Revisar el texto antes de enviarlo</label>
+        </div>
+        <div id="iaKeyBox" class="chat__key" hidden>
+          <input type="password" id="iaKey" placeholder="Clave de API de Anthropic (sk-ant-…)" autocomplete="off">
+          <small>Solo se guarda en esta pestaña. En producción la clave iría en un servidor.</small>
+        </div>
+        <div class="chat__log" id="chatLog" aria-live="polite"></div>
+        <div class="chips" id="chatSuggest">
+          <button type="button">¿Cuánto le toca de gratificación?</button>
+          <button type="button">¿Tengo que registrar el contrato?</button>
+          <button type="button">¿Cuántas horas puede trabajar?</button>
+          <button type="button">¿Qué pasa si trabaja cama adentro?</button>
+        </div>
+        <form class="chat__form" id="chatForm">
+          <textarea id="chatInput" rows="1" placeholder="Escribe tu pregunta…" required></textarea>
+          <button type="submit" class="btn btn--primary">Enviar</button>
+        </form>
+      </div>
+      <aside class="card ethics">
+        <h3 class="card__title">Uso responsable de la IA</h3>
+        <dl>
+          <dt>¿Qué modelo usa?</dt><dd>Base de conocimiento propia (sin conexión) o el modelo <code>claude-opus-5-5</code> de Anthropic vía API.</dd>
+          <dt>¿Qué hace la IA?</dt><dd>Responde dudas, explica el contrato en lenguaje simple y lo revisa. <b>No decide ni sanciona</b>: las cifras y validaciones las hace un motor de reglas.</dd>
+          <dt>Riesgos</dt><dd>Respuestas inexactas o desactualizadas, sesgos y exposición de datos personales.</dd>
+          <dt>Controles</dt><dd><ul><li>Se ocultan nombres, DNI, celulares y direcciones antes del envío.</li><li>La persona revisa el texto antes de enviarlo.</li><li>Aviso de verificación humana en cada respuesta.</li><li>Bitácora de consultas.</li></ul></dd>
+          <dt>Marco legal</dt><dd>Ley N.° 29733 (datos personales) y Ley N.° 31814 con su reglamento, D.S. N.° 115-2025-PCM (IA).</dd>
+        </dl>
+        <h4>Bitácora</h4>
+        <ol id="iaBitacora" class="log"></ol>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EL PROYECTO ================= -->
+<section id="proyecto" class="view">
+  <div class="wrap">
+    <h2 class="title">Sobre el proyecto</h2>
+    <p class="muted">Propuesta Legaltech · Equipo Hogar Formal · 2026</p>
+
+    <div class="doc-grid">
+      <article class="card"><h3 class="card__title">1. Problema jurídico</h3>
+        <p>La Ley N.° 31047 y su Reglamento (D.S. N.° 009-2021-TR) reconocen a las trabajadoras del hogar contrato escrito, remuneración no menor a la RMV, jornada máxima de 8 horas diarias o 48 semanales, gratificaciones, CTS, vacaciones y seguridad social. Sin embargo, entre el 91,7 % y el 96,6 % sigue en la informalidad.</p>
+        <p>No falta ley: falta cumplimiento. Muchos hogares creen que la norma no les aplica, desconocen sus obligaciones o consideran el registro un trámite complicado; y la fiscalización es limitada porque el domicilio es inviolable (Constitución, art. 2 inc. 9).</p>
+      </article>
+      <article class="card"><h3 class="card__title">2. Usuarios</h3>
+        <ul><li><b>Hogares empleadores:</b> registran el contrato y conocen sus obligaciones.</li><li><b>Trabajadoras del hogar:</b> conocen sus derechos y consultan.</li><li><b>Instituciones:</b> MTPE, SUNAFIL, EsSalud, municipalidades y federaciones de trabajadoras, como aliados de un piloto.</li></ul>
+      </article>
+      <article class="card"><h3 class="card__title">3. Cómo funciona</h3>
+        <ol><li>El hogar completa el registro en 3 pasos; un motor de reglas valida la información y explica qué corregir.</li><li>Se genera una constancia con código, el contrato listo para firmar y la lista de obligaciones con montos estimados.</li><li>El hogar elige recordatorios para el registro, las gratificaciones y la CTS.</li><li>La trabajadora consulta sus derechos y recibe orientación de un asistente con IA.</li></ol>
+      </article>
+      <article class="card"><h3 class="card__title">4. Tecnologías y arquitectura</h3>
+        <div class="arch">
+          <div class="arch__box">Navegador<br><small>HTML · CSS · JavaScript</small></div>
+          <div class="arch__arrow">→</div>
+          <div class="arch__box">Módulos<br><small>Registro · Contrato · Cálculo · Recordatorios · Consulta</small></div>
+          <div class="arch__arrow">→</div>
+          <div class="arch__box">Almacenamiento local<br><small>localStorage</small></div>
+        </div>
+        <div class="arch arch--ia">
+          <div class="arch__box">Asistente</div><div class="arch__arrow">→</div>
+          <div class="arch__box">Anonimización<br><small>Ley 29733</small></div><div class="arch__arrow">→</div>
+          <div class="arch__box">API de Claude<br><small>Anthropic</small></div>
+        </div>
+        <p class="hint">Motor de reglas jurídicas propio (Ley 31047, RMV, jornada, edad mínima), generación de documentos PDF/Word y calendario (.ics).</p>
+      </article>
+      <article class="card"><h3 class="card__title">5. Beneficios y limitaciones</h3>
+        <p><b>Beneficios:</b> registro en minutos, contrato conforme a la ley, obligaciones claras con montos, recordatorios y un canal de orientación que prioriza corregir antes de sancionar.</p>
+        <p><b>Limitaciones:</b> es un prototipo sin servidor; no se conecta aún con el aplicativo del MTPE, EsSalud ni SUNAT; los envíos de WhatsApp/SMS se simulan; la RMV debe actualizarse; la IA puede equivocarse.</p>
+      </article>
+      <article class="card"><h3 class="card__title">6. Aplicación en el mercado peruano</h3>
+        <p>Se propone como piloto de hasta 9 meses en distritos de Lima, con distritos de comparación, liderado por el MTPE junto con SUNAFIL, EsSalud, municipalidades y las federaciones de trabajadoras del hogar.</p>
+        <p><b>Indicadores:</b> % de hogares con contrato registrado, % de trabajadoras afiliadas a EsSalud y pensiones, conocimiento de la ley antes y después, y costo por trabajadora formalizada.</p>
+      </article>
+      <article class="card"><h3 class="card__title">7. Riesgos, ética e IA</h3>
+        <ul><li><b>Datos personales:</b> recolección mínima, finalidad declarada y anonimización antes de usar la IA (Ley N.° 29733).</li><li><b>IA:</b> rol de orientación, sin decisiones automáticas; respuestas con aviso de verificación y revisión humana (Ley N.° 31814).</li><li><b>Domicilio:</b> la verificación es indirecta, sin ingresar al hogar.</li></ul>
+      </article>
+      <article class="card"><h3 class="card__title">8. Mejoras futuras</h3>
+        <ul><li>Conexión con el aplicativo de registro del MTPE y con EsSalud.</li><li>Envío real de recordatorios por WhatsApp.</li><li>Boletas de pago y liquidación de beneficios.</li><li>Acceso con DNI y firma digital del contrato.</li></ul>
+      </article>
+    </div>
+
+    <h3 class="subtitle">Marco normativo</h3>
+    <div class="table-wrap">
+      <table class="table">
+        <thead><tr><th>Norma</th><th>Qué sostiene en la propuesta</th></tr></thead>
+        <tbody>
+          <tr><td>Ley N.° 31047 y D.S. N.° 009-2021-TR</td><td>Derechos de las trabajadoras del hogar y obligaciones del hogar empleador.</td></tr>
+          <tr><td>R.D.G. N.° 0001-2021-MTPE/2/15</td><td>Modelos referenciales de contrato y boleta que inspiran el contrato generado.</td></tr>
+          <tr><td>Ley N.° 27735 y Ley N.° 30334 · D.S. N.° 001-97-TR</td><td>Cálculo de gratificaciones, bonificación extraordinaria y CTS.</td></tr>
+          <tr><td>Convenio 189 de la OIT</td><td>Contrato claro y verificable para el trabajo doméstico.</td></tr>
+          <tr><td>Ley N.° 29733</td><td>Tratamiento mínimo y con finalidad de los datos personales.</td></tr>
+          <tr><td>Ley N.° 31814 y D.S. N.° 115-2025-PCM</td><td>Uso responsable de la inteligencia artificial.</td></tr>
+          <tr><td>Constitución, art. 2 inc. 9</td><td>Inviolabilidad del domicilio: verificación indirecta.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <b>Hogar Formal</b> · Prototipo académico con datos de ejemplo. No es un servicio oficial del MTPE ni constituye asesoría legal.
+</footer>
+
+<dialog id="dlgEnvio" class="dialog">
+  <form method="dialog">
+    <h3>Texto que se enviará a la IA</h3>
+    <p class="hint">Los datos personales se reemplazaron por etiquetas. Revísalo antes de confirmar.</p>
+    <pre id="dlgEnvioTexto"></pre>
+    <div class="form-nav"><button value="cancel" class="btn btn--ghost">Cancelar</button><button value="ok" class="btn btn--primary">Confirmar envío</button></div>
+  </form>
+</dialog>
+
+<dialog id="dlgContrato" class="dialog dialog--doc">
+  <div class="dialog__bar">
+    <b>Contrato de trabajo del hogar</b>
+    <div class="row">
+      <button type="button" class="btn btn--ghost btn--sm" data-doc="word">Word</button>
+      <button type="button" class="btn btn--primary btn--sm" data-doc="pdf">PDF / Imprimir</button>
+      <button type="button" class="btn btn--ghost btn--sm" data-doc="cerrar" aria-label="Cerrar">✕</button>
+    </div>
+  </div>
+  <article class="paper" id="contratoDoc"></article>
+</dialog>
+
+<div id="toast" class="toast" role="status"></div>
+
+<script src="js/utils.js"></script>
+<script src="js/store.js"></script>
+<script src="js/contrato.js"></script>
+<script src="js/registro.js"></script>
+<script src="js/calculadora.js"></script>
+<script src="js/recordatorios.js"></script>
+<script src="js/derechos.js"></script>
+<script src="js/ia.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
